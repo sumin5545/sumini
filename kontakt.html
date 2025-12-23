@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Sumin</title>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Sumin.</div>
+        <div class="menu-linki">
+            <a href="index.html">Start</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="kontakt.html" class="aktywny">Kontakt</a> <button onclick="zmienMotyw()" style="margin-left: 20px; cursor: pointer; background: none; border: 1px solid #ccc; padding: 5px 10px; border-radius: 20px;">🌗 Tryb</button>
+        </div>
+    </nav>
+
+    <div class="kontener">
+        <div class="karta animacja-wejscia">
+            
+            <div id="formularz-kontener">
+                <h1>Napisz do mnie</h1>
+                <p>Masz pytania? Chcesz nawiązać współpracę? Wypełnij formularz poniżej.</p>
+
+                <form onsubmit="wyslij(event)">
+                    
+                    <label for="imie">Twoje Imię</label>
+                    <input type="text" id="imie" placeholder="np. Jan Kowalski" required>
+
+                    <label for="email">Twój E-mail</label>
+                    <input type="email" id="email" placeholder="np. jan@domena.pl" required>
+
+                    <label for="wiadomosc">Wiadomość</label>
+                    <textarea id="wiadomosc" placeholder="Tutaj wpisz treść..." required></textarea>
+
+                    <button type="submit" class="przycisk-glowny">Wyślij wiadomość</button>
+                </form>
+            </div>
+
+            <div id="podziekowanie">
+                <h2>Wiadomość wysłana! 🚀</h2>
+                <p>Dziękuję za kontakt, <span id="imie-nadawcy" style="font-weight:bold"></span>.</p>
+                <p>Odezwiemy się do Ciebie najszybciej jak to możliwe.</p>
+                <br>
+                <a href="index.html" class="przycisk-glowny" style="display:inline-block; width:auto;">Wróć na start</a>
+            </div>
+
+        </div>
+    </div>
+
+<footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.9em; margin-top: auto;">
+        
+        <div style="margin-bottom: 20px;">
+            <a href="https://instagram.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">📸</a>
+            
+            <a href="https://tiktok.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">🎵</a>
+            
+            <a href="https://github.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">💻</a>
+        </div>
+
+        &copy; 2025 Park Sumin. Wszelkie prawa zastrzeżone.<br>
+        Stworzone z pasją 💜
+    </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

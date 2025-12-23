@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Sumin</title>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Sumin's first ever website</div>
+        <div class="menu-linki">
+            <a href="index.html">Start</a>
+            <a href="galeria.html" class="aktywny">Galeria</a>
+            <a href="kontakt.html">Kontakt</a>
+						<button onclick="zmienMotyw()" style="margin-left: 20px; cursor: pointer; background: none; border: 1px solid #ccc; padding: 5px 10px; border-radius: 20px;">
+                🌗 Tryb
+            </button>
+        </div>
+    </nav>
+
+    <div class="kontener-galerii">
+        <h1>Moja Galeria</h1>
+        <p>Kliknij na zdjęcie, aby zobaczyć je w powiększeniu i przeczytać opis.</p>
+        
+        <div class="siatka-zdjec">
+            
+            <div class="pudelko-na-zdjecie">
+                <img src="foto1.jpg" 
+                     alt="Skrót 1"
+                     onclick="pokazDuze(this)"
+					 data-opis="To ja i mój chłopak <a href='https://en.wikipedia.org/wiki/Hyunjin_(Stray_Kids_singer)' target='_blank'>Hyunjin</a>">
+            </div>
+
+            <div class="pudelko-na-zdjecie">
+                <img src="foto2.png" 
+                     alt="Skrót 2"
+                     onclick="pokazDuze(this)"
+					 data-opis="To ja oraz Felix ze <a href='https://en.wikipedia.org/wiki/Felix_(rapper)' target='_blank'>Stray Kids</a> Kliknij, aby poczytać o nim więcej.">
+            </div>
+
+            <div class="pudelko-na-zdjecie">
+                <img src="foto3.png" 
+                     alt="Skrót 3"
+                     data-opis="Kolejny wspaniały projekt w mojej kolekcji."
+                     onclick="pokazDuze(this)">
+            </div>
+			
+			<div class="pudelko-na-zdjecie">
+                <img src="foto4.png" 
+                     alt="Skrót 4"
+                     data-opis="Kolejny wspaniały projekt w mojej kolekcji."
+                     onclick="pokazDuze(this)">
+            </div>
+        </div>
+
+        <br>
+        <a href="index.html" class="przycisk-powrotu">←Wróć do strony głównej</a>
+    </div>
+
+    <div id="modal-nakladka" onclick="zamknijModal()">
+        <span class="zamknij-x">&times;</span>
+        <div class="modal-zawartosc" onclick="event.stopPropagation()"> 
+            <img id="duze-zdjecie" src="">
+            <p id="opis-zdjecia"></p>
+        </div>
+    </div>
+
+<footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.9em; margin-top: auto;">
+        
+        <div style="margin-bottom: 20px;">
+            <a href="https://instagram.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">📸</a>
+            
+            <a href="https://tiktok.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">🎵</a>
+            
+            <a href="https://github.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">💻</a>
+        </div>
+
+        &copy; 2025 Park Sumin. Wszelkie prawa zastrzeżone.<br>
+        Stworzone z pasją 💜
+    </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
