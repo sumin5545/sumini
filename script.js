@@ -60,3 +60,11 @@ function wyslij(event) {
     document.getElementById("imie-nadawcy").innerText = wpisaneImie;
     document.getElementById("podziekowanie").style.display = "block";
 }
+
+// 5. MENU MOBILNE (Hamburger)
+function pokazMenu() {
+    const menu = document.getElementById("menu");
+    // To działa jak przełącznik światła:
+    // Jak ma klasę "otwarte", to ją zabiera. Jak nie ma, to dodaje.
+    menu.classList.toggle("otwarte");
+}

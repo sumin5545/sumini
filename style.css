@@ -109,3 +109,62 @@ body.ciemny-motyw .przycisk-pusty:hover { background-color: #e0aaff; color: #240
 body.ciemny-motyw .przycisk-powrotu { color: #c77dff; border-bottom-color: #c77dff; }
 body.ciemny-motyw input, body.ciemny-motyw textarea { background-color: #240046; border-color: #5b4cc4; color: white; }
 body.ciemny-motyw input:focus, body.ciemny-motyw textarea:focus { border-color: #e0aaff; }
+
+/* --- RESPONSYWNOŚĆ (TELEFONY) --- */
+
+/* 1. Domyślnie (na komputerze) hamburger jest ukryty */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #2c3e50; /* Ciemny kolor w dzień */
+}
+
+/* W trybie ciemnym hamburger musi być jasny */
+body.ciemny-motyw .hamburger {
+    color: white;
+}
+
+/* 2. MEDIA QUERY - To działa TYLKO na ekranach mniejszych niż 768px (tablety i telefony) */
+@media (max-width: 768px) {
+    
+    /* Pokaż hamburgera */
+    .hamburger {
+        display: block; 
+    }
+
+    /* Zmień układ nawigacji */
+    nav {
+        flex-wrap: wrap; /* Pozwól elementom spadać do nowej linii */
+    }
+
+    /* Ukryj linki domyślnie! */
+    .menu-linki {
+        display: none; /* Ukryte! */
+        width: 100%;   /* Rozciągnij na całą szerokość */
+        flex-direction: column; /* Układaj linki jeden pod drugim, a nie obok siebie */
+        text-align: center;
+        margin-top: 20px;
+        background-color: #f9f9f9; /* Lekkie tło dla menu mobilnego */
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    /* W trybie ciemnym zmień tło menu mobilnego */
+    body.ciemny-motyw .menu-linki {
+        background-color: #4a148c;
+    }
+
+    /* Linki w menu mobilnym */
+    .menu-linki a {
+        display: block; /* Każdy link w nowej linii */
+        margin: 15px 0; /* Większe odstępy żeby łatwo trafić palcem */
+        font-size: 1.2em;
+    }
+
+    /* --- KLASA OTWIERAJĄCA --- */
+    /* Tę klasę doda JavaScript, gdy klikniesz hamburgera */
+    .menu-linki.otwarte {
+        display: flex; /* Pokaż menu! */
+    }
+}

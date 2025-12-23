@@ -12,7 +12,12 @@
 
     <nav>
         <div class="logo">Sumin's first ever website</div>
-        <div class="menu-linki">
+        
+        
+        <div class="hamburger" onclick="pokazMenu()">
+            ☰
+        </div>
+        <div class="menu-linki" id="menu">
             <a href="index.html">Start</a>
             <a href="galeria.html" class="aktywny">Galeria</a>
             <a href="kontakt.html">Kontakt</a>
@@ -32,16 +37,16 @@
                 <img src="foto1.jpg" 
                      alt="Skrót 1"
                      onclick="pokazDuze(this)"
-					 data-opis="To ja i mój chłopak <a href='https://en.wikipedia.org/wiki/Hyunjin_(Stray_Kids_singer)' target='_blank'>Hyunjin</a>">
+					 data-opis="Photo of my friend">
             </div>
 
             <div class="pudelko-na-zdjecie">
-                <img src="foto2.png" 
+                <img src="foto2.jpg" 
                      alt="Skrót 2"
                      onclick="pokazDuze(this)"
-					 data-opis="To ja oraz Felix ze <a href='https://en.wikipedia.org/wiki/Felix_(rapper)' target='_blank'>Stray Kids</a> Kliknij, aby poczytać o nim więcej.">
+					 data-opis="Idk what's this">
             </div>
-
+<!--
             <div class="pudelko-na-zdjecie">
                 <img src="foto3.png" 
                      alt="Skrót 3"
@@ -55,6 +60,7 @@
                      data-opis="Kolejny wspaniały projekt w mojej kolekcji."
                      onclick="pokazDuze(this)">
             </div>
+            -->
         </div>
 
         <br>
