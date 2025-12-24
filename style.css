@@ -25,11 +25,87 @@ nav {
 .kontener { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px; }
 .kontener-galerii { padding: 50px; text-align: center; flex: 1; }
 
+
+/* --- BAZA DLA WSZYSTKICH KART (Efekt Szkła) --- */
 .karta {
-    background: white; padding: 50px; border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 100%; max-width: 500px; text-align: center; /* Domyślnie środek, formularz nadpisze */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
+
+/* --- STRONA GŁÓWNA (Mała i wycentrowana) --- */
+/* Szukamy karty, która NIE jest na stronie "O mnie" */
+body:not(:has(#zegar-seul)) .karta {
+    max-width: 500px; /* Szerokość jak na Twoim zrzucie */
+    padding: 60px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- STRONA O MNIE (Szeroka i dopasowana do treści) --- */
+/* Szukamy karty na stronie, gdzie jest zegar Seulu */
+body:has(#zegar-seul) .karta {
+    max-width: 800px; /* Więcej miejsca na tekst i Spotify */
+    padding: 50px;
+    text-align: left;
+}
+
+/* Poprawka dla trybu ciemnego */
+body.ciemny-motyw .karta {
+    background: rgba(60, 9, 108, 0.6);
+}
+
+/*.karta {
+    /* Twoje efekty szkła zostają 
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* TO POPRAWI POŁOŻENIE: 
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centruje wszystko w poziomie 
+    justify-content: center; /* Centruje wszystko w pionie 
+    text-align: center;      /* Centruje sam tekst 
+    
+    min-height: 300px;       /* Daje karcie stałą, ładną wysokość 
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;          /* Centruje samą kartę na środku strony 
+}
+*/
+/*
+.karta {
+    /* To tworzy efekt szkła 
+    background: rgba(255, 255, 255, 0.7); /* Biały z 70% widoczności 
+    backdrop-filter: blur(15px); /* To rozmywa tło pod kartą - KLUCZOWE! 
+    -webkit-backdrop-filter: blur(15px); /* Wsparcie dla Safari 
+    
+    padding: 50px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Delikatna krawędź szkła 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+}
+*/
+
+/* Na podstronie "O mnie" chcemy jednak tekst do lewej (oprócz nagłówka) */
+/*body:has(#zegar-seul) .karta {
+    text-align: left;
+    align-items: flex-start;
+}*/
+
 
 h1 { color: #2c3e50; margin-bottom: 20px; }
 p { color: #666; margin-bottom: 30px; line-height: 1.6; }
@@ -99,6 +175,10 @@ footer { text-align: center; padding: 40px 20px; color: #888; font-size: 0.9em; 
 /* 10. CIEMNY MOTYW (FIOLETOWY) */
 body.ciemny-motyw { background: linear-gradient(135deg, #240046 0%, #10002b 100%); color: #e0aaff; }
 body.ciemny-motyw .karta, body.ciemny-motyw nav, body.ciemny-motyw .sekcja-galeria,
+body.ciemny-motyw .karta {
+    background: rgba(60, 9, 108, 0.6); /* Twój ciemny fiolet, ale przezroczysty */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 body.ciemny-motyw .pudelko-na-zdjecie, body.ciemny-motyw .kontener-galerii {
     background-color: #3c096c; color: #e0aaff; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
@@ -109,6 +189,15 @@ body.ciemny-motyw .przycisk-pusty:hover { background-color: #e0aaff; color: #240
 body.ciemny-motyw .przycisk-powrotu { color: #c77dff; border-bottom-color: #c77dff; }
 body.ciemny-motyw input, body.ciemny-motyw textarea { background-color: #240046; border-color: #5b4cc4; color: white; }
 body.ciemny-motyw input:focus, body.ciemny-motyw textarea:focus { border-color: #e0aaff; }
+body.ciemny-motyw p {
+    color: #f1f1f1 !important; /* Jasny kolor, który będzie idealnie widać na fiolecie */
+}
+body.ciemny-motyw .karta {
+    color: #ffffff;
+}
+body.ciemny-motyw strong {
+    color: #e0aaff; /* Pogrubione słowa będą miały delikatny lawendowy odcień */
+}
 
 /* --- RESPONSYWNOŚĆ (TELEFONY) --- */
 
@@ -167,4 +256,112 @@ body.ciemny-motyw .hamburger {
     .menu-linki.otwarte {
         display: flex; /* Pokaż menu! */
     }
+}
+
+/* --- WŁASNY PASEK PRZEWIJANIA (Tylko dla Chrome, Edge, Safari) --- */
+
+/* Cały pasek */
+::-webkit-scrollbar {
+    width: 12px; /* Szerokość paska */
+}
+
+/* Tło paska (ścieżka) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Jasne tło */
+}
+
+/* Część, którą przesuwasz (kciuk) */
+::-webkit-scrollbar-thumb {
+    background-color: #c77dff; /* Twój jasny fiolet */
+    border-radius: 10px;       /* Zaokrąglenie */
+    border: 3px solid #f1f1f1; /* Margines dookoła, żeby wyglądał lżej */
+}
+
+/* Pasek w trybie ciemnym */
+body.ciemny-motyw ::-webkit-scrollbar-track {
+    background: #240046; /* Ciemne tło */
+    border-color: #240046;
+}
+
+body.ciemny-motyw ::-webkit-scrollbar-thumb {
+    background-color: #6c5ce7; /* Ciemniejszy fiolet */
+    border-color: #240046;
+}
+
+/* --- PASKI UMIEJĘTNOŚCI --- */
+.pasek-tlo {
+    background-color: #eee;
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden; /* Żeby pasek postępu nie wyjechał poza zaokrąglenie */
+}
+
+.pasek-postepu {
+    background-color: #6c5ce7; /* Fioletowy */
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-in-out; /* Płynna animacja */
+}
+
+/* W trybie ciemnym */
+body.ciemny-motyw .pasek-tlo {
+    background-color: #240046;
+}
+body.ciemny-motyw .pasek-postepu {
+    background-color: #e0aaff; /* Jasny fiolet */
+}
+
+/* --- PRZYCISK GÓRA --- */
+#przycisk-gora {
+    display: none; /* Domyślnie ukryty */
+    position: fixed; /* Przyklejony do ekranu */
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #6c5ce7;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%; /* Kółeczko */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#przycisk-gora:hover {
+    background-color: #5b4cc4;
+    transform: translateY(-3px); /* Lekko się unosi */
+}
+
+.karta iframe {
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* --- ANIMACJA PŁYWAJĄCYCH NUTEK --- */
+.nutka {
+    position: absolute;
+    font-size: 24px;
+    color: #c77dff; /* Jasny fiolet */
+    pointer-events: none;
+    animation: plywanie 4s linear infinite;
+    opacity: 0;
+    z-index: 0;
+}
+
+@keyframes plywanie {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(-150px) rotate(45deg); opacity: 0; }
+}
+
+/* Ustawienie pozycji karty, żeby nutki nie uciekały na całą stronę */
+.karta {
+    position: relative;
+    overflow: hidden; /* Nutki nie wyjdą poza krawędzie karty */
 }

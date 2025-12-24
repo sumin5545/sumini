@@ -68,3 +68,84 @@ function pokazMenu() {
     // Jak ma klasę "otwarte", to ją zabiera. Jak nie ma, to dodaje.
     menu.classList.toggle("otwarte");
 }
+
+// 6. PRZYCISK WRÓĆ NA GÓRĘ
+const przyciskGora = document.getElementById("przycisk-gora");
+
+// Kiedy użytkownik przewinie w dół o 200px, pokaż przycisk
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        if(przyciskGora) przyciskGora.style.display = "block";
+    } else {
+        if(przyciskGora) przyciskGora.style.display = "none";
+    }
+};
+
+// Funkcja kliknięcia
+function wrocNaGore() {
+    window.scrollTo({top: 0, behavior: 'smooth'}); // Płynne przewijanie
+}
+
+// --- 1. LICZNIK DNI NAUKI KOREAŃSKIEGO ---
+function aktualizujLicznik() {
+    const dataStartu = new Date(2025, 5, 9); // <-- TU WPISZ SWOJĄ DATĘ (Rok, Miesiąc-1, Dzień)
+    const dzis = new Date();
+    const roznica = dzis - dataStartu;
+    const dni = Math.floor(roznica / (1000 * 60 * 60 * 24));
+
+    const element = document.getElementById("licznik-dni");
+    if (element) {
+        element.innerText = dni;
+    }
+}
+
+// --- 2. GENERATOR PŁYWAJĄCYCH NUTEK (Tylko dla strony O mnie) ---
+function stworzNutke() {
+    // Sprawdzamy, czy w tytule strony jest "O mnie" 
+    // Jeśli nie jesteśmy na tej podstronie, funkcja natychmiast przerywa działanie
+    if (!document.title.includes("O mnie")) {
+        return; 
+    }
+
+    const karta = document.querySelector('.karta');
+    if (!karta) return;
+
+    const nutka = document.createElement('div');
+    nutka.className = 'nutka';
+    nutka.innerText = ['🎵', '🎶', '🎼', '🎹'][Math.floor(Math.random() * 4)];
+    
+    nutka.style.left = Math.random() * 90 + '%';
+    nutka.style.bottom = '10%'; 
+    
+    karta.appendChild(nutka);
+
+    setTimeout(() => {
+        nutka.remove();
+    }, 4000);
+}
+
+// Interwał zostawiamy, ale dzięki powyższemu "if" nie będzie robił szkód na innych stronach
+setInterval(stworzNutke, 1500);
+
+// Uruchomienie funkcji po załadowaniu strony
+window.addEventListener('load', () => {
+    aktualizujLicznik();
+    // Twórz nową nutkę co 1.5 sekundy
+    setInterval(stworzNutke, 1500);
+});
+
+function aktualizujZegarSeul() {
+    const teraz = new Date();
+    // Seul to strefa czasowa UTC+9
+    const czasSeul = teraz.toLocaleTimeString("pl-PL", {
+        timeZone: "Asia/Seoul",
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    const el = document.getElementById("zegar-seul");
+    if(el) el.innerText = czasSeul;
+}
+// Odświeżaj co sekundę
+setInterval(aktualizujZegarSeul, 1000);
+aktualizujZegarSeul();
