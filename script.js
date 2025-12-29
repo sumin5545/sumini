@@ -27,6 +27,9 @@ if (elementTekstu) {
             elementTekstu.innerHTML += tekstDoNapisania.charAt(indeksLiterki);
             indeksLiterki++;
             setTimeout(pisz, 100); 
+        } else {
+            elementTekstu.classList.add("glitch");
+            elementTekstu.setAttribute("data-text", tekstDoNapisania);
         }
     }
     // Start po 0.5 sekundy
@@ -178,3 +181,4 @@ document.addEventListener("DOMContentLoaded", function() {
         przyciskPasje.classList.add('aktywny');
     }
 });
+

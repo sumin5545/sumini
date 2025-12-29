@@ -519,3 +519,84 @@ body.ciemny-motyw .dropdown-content a.aktywny {
     font-weight: bold;
     text-shadow: 0 0 10px rgba(108, 92, 231, 0.4); /* Subtelna fioletowa poświata */
 }
+
+/* --- SUBTELNY EFEKT GLITCH --- */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text); /* To pobierze tekst z HTML */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+/* Kolorowa warstwa pod spodem - fioletowa */
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #6c5ce7;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+/* Kolorowa warstwa pod spodem - błękitna */
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00d2ff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+/* Animacja zakłóceń */
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 20px, 0); }
+    5% { clip: rect(30px, 9999px, 40px, 0); }
+    10% { clip: rect(60px, 9999px, 70px, 0); }
+    15% { clip: rect(0, 9999px, 0, 0); } /* Przerwa w efekcie */
+    100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(80px, 9999px, 90px, 0); }
+    5% { clip: rect(10px, 9999px, 30px, 0); }
+    10% { clip: rect(40px, 9999px, 50px, 0); }
+    15% { clip: rect(0, 9999px, 0, 0); }
+    100% { clip: rect(0, 9999px, 0, 0); }
+}
+.glitch-container {
+    text-align: center; /* Centruje elementy inline-block wewnątrz */
+    width: 100%;        /* Rozciąga się na całą szerokość karty */
+    margin-bottom: 20px; /* Dodaje trochę oddechu pod nagłówkiem */
+}
+
+#tekst-pisany.glitch {
+    display: inline-block;
+    width: auto;
+    margin: 0 auto; /* Centrowanie */
+    text-align: center;
+}
+
+/* Upewnij się, że karta trzyma wszystko na środku */
+.karta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar-logo {
+    height: 65px;       /* Dopasuj tę wysokość do swojego paska nawigacji */
+    width: auto;        /* Zachowuje proporcje logo */
+    display: block;
+    transition: transform 0.3s ease; /* Płynne powiększenie po najechaniu */
+}
+
+.logo-link:hover .navbar-logo {
+    transform: scale(1.1); /* Logo delikatnie urośnie, gdy na nie nadejdziesz myszką */
+}
