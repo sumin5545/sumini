@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Moods - Sumin</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+/* Ratunkowa animacja znikająca dla loadera */
+#loader-wrapper {
+    animation: autoznikniecie 1s forwards 1s; /* Po 4 sekundach sam zniknie */
+}
+
+@keyframes autoznikniecie {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+        .mood-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .mood-btn {
+            background: rgba(108, 92, 231, 0.1);
+            border: 2px solid #6c5ce7;
+            color: #6c5ce7;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .mood-btn:hover, .mood-btn.active {
+            background: #6c5ce7;
+            color: white;
+        }
+        .player-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="loader-wrapper">
+    <h1 style="color: white; font-size: 3em; margin: 0;">안녕하세요!<br><span style="font-size: 0.6em; opacity: 0.8;">Annyeong! 💜</span></h1>
+</div>
+    <nav>
+        <div class="logo">Sumin.</div>
+        <div class="menu-linki">
+            <a href="index.html">Start</a>
+<a href="omnie.html">O mnie</a>
+            <div class="dropdown">
+            <button class="dropbtn">Pasje ▾</button>
+            <div class="dropdown-content">
+            <a href="gaming.html">Gry 🎮</a>
+                <a href="korea.html">Korea 🇰🇷</a>
+                <a href="muzyka.html" class="aktywny">Muzyka 🎵</a>
+            </div>
+        </div>
+<a href="galeria.html">Galeria</a>
+<a href="kontakt.html">Kontakt</a>
+ <button onclick="zmienMotyw()" style="margin-left: 20px; cursor: pointer; background: none; border: 1px solid #ccc; padding: 5px 10px; border-radius: 20px;">🌗 Tryb</button>
+        </div>
+    </nav>
+
+    <div class="kontener">
+        <div class="karta animacja-wejscia">
+            <h1>Music Moods 🎵</h1>
+            <p>Bez muzyki mój świat nie miałby kolorów. Wybierz mój aktualny nastrój, aby posłuchać tego, co mi teraz gra w duszy:</p>
+
+            <div class="mood-buttons">
+                <button class="mood-btn active" onclick="changeMood('kpop', this)">Energia (K-Pop)</button>
+                <button class="mood-btn" onclick="changeMood('chill', this)">Relaks (Indie/Lo-fi)</button>
+                <button class="mood-btn" onclick="changeMood('study', this)">Nauka (Instrumental)</button>
+            </div>
+
+            <div class="player-container">
+                <iframe id="spotify-player" src=https://open.spotify.com/embed/playlist/6id8uK3aP15HuhguPpty5F?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeMood(mood, btn) {
+            const player = document.getElementById('spotify-player');
+            const buttons = document.querySelectorAll('.mood-btn');
+            
+            // Usuń klasę active ze wszystkich przycisków
+            buttons.forEach(b => b.classList.remove('active'));
+            // Dodaj klasę active do klikniętego
+            btn.classList.add('active');
+
+            // Zmień link Spotify (tutaj możesz wkleić swoje playlisty!)
+            if(mood === 'kpop') {
+                player.src = "https://open.spotify.com/embed/playlist/6id8uK3aP15HuhguPpty5F?utm_source=generator";
+            } else if(mood === 'chill') {
+                player.src = "https://open.spotify.com/embed/playlist/6oGkHxY1E8tovPLcW1snte?utm_source=generator";
+            } else if(mood === 'study') {
+                player.src = "https://open.spotify.com/embed/playlist/2WojE5hlTqY3Wd7VaSFrYk?utm_source=generator";
+            }
+        }
+    </script>
+
+<footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.9em; margin-top: auto;">
+        
+        <div style="margin-bottom: 20px;">
+            <a href="https://instagram.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">📸</a>
+            
+            <a href="https://tiktok.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">🎵</a>
+            
+            <a href="https://github.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">💻</a>
+        </div>
+
+        &copy; 2025 Park Sumin. Wszelkie prawa zastrzeżone.<br>
+        Stworzone z pasją 💜
+    </footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -149,3 +149,32 @@ function aktualizujZegarSeul() {
 // Odświeżaj co sekundę
 setInterval(aktualizujZegarSeul, 1000);
 aktualizujZegarSeul();
+
+// --- POPRAWIONA OBSŁUGA EKRANU ŁADOWANIA ---
+function ukryjLoader() {
+    const loader = document.getElementById('loader-wrapper');
+    if (loader && !loader.classList.contains('loader-hidden')) {
+        loader.classList.add('loader-hidden');
+    }
+}
+
+// 1. Próba ukrycia po pełnym załadowaniu (standardowa)
+window.addEventListener('load', ukryjLoader);
+
+// 2. TIMER BEZPIECZEŃSTWA (na wypadek problemów ze Spotify)
+// Jeśli po 3 sekundach ekran wciąż wisi - usuwamy go na siłę
+setTimeout(ukryjLoader, 3000);
+
+// --- PODŚWIETLANIE MENU "PASJE" ---
+document.addEventListener("DOMContentLoaded", function() {
+    const linkiPasji = ['gaming.html', 'korea.html', 'muzyka.html'];
+    const sciezka = window.location.pathname;
+    const przyciskPasje = document.querySelector('.dropbtn');
+
+    // Sprawdź, czy aktualna strona pasuje do listy pasji
+    const czyToPasja = linkiPasji.some(link => sciezka.includes(link));
+
+    if (czyToPasja && przyciskPasje) {
+        przyciskPasje.classList.add('aktywny');
+    }
+});

@@ -151,7 +151,7 @@ textarea { resize: vertical; height: 120px; }
 /* 7. MODAL (LIGHTBOX) */
 #modal-nakladka {
     display: none; position: fixed; z-index: 1000; left: 0; top: 0;
-    width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+    width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9);
     justify-content: center; align-items: center; flex-direction: column;
 }
 .modal-zawartosc { text-align: center; max-width: 80%; max-height: 80%; }
@@ -364,4 +364,158 @@ body.ciemny-motyw .pasek-postepu {
 .karta {
     position: relative;
     overflow: hidden; /* Nutki nie wyjdą poza krawędzie karty */
+}
+
+/* --- DOPASOWANIE DO TELEFONÓW --- */
+@media (max-width: 600px) {
+    .karta {
+        padding: 20px;
+        margin: 10px;
+    }
+    .grid-gier {
+        grid-template-columns: 1fr; /* Jedna gra pod drugą na telefonie */
+    }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* --- STYLE EKRANU ŁADOWANIA --- */
+#loader-wrapper {
+    position: fixed; /* Zawsze w tym samym miejscu ekranu */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Piękny, ciemnofioletowy gradient */
+    background: linear-gradient(135deg, #240046, #3c096c, #7b2cbf);
+    z-index: 9999; /* Musi być NAJWYŻEJ, nad wszystkim innym */
+    
+    /* Centrowanie napisu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* Płynne znikanie */
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+/* Klasa, którą doda JavaScript, żeby ukryć ekran */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Ważne! Żeby nie blokował kliknięć jak już zniknie */
+}
+
+/* --- STYL DLA ROZWIJANEGO MENU --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Domyślnie (Tryb Jasny) - ciemniejszy fiolet, by był widoczny na jasnym tle */
+.dropbtn {
+    background: none;
+    border: none;
+    color: #666; /* Twój główny fiolet */
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 5px 10px 15px;
+    font-family: inherit;
+    margin-right: -15px;
+    transition: color 0.3s ease;
+}
+
+/* Tryb Ciemny - zmieniamy napis na biały */
+body.ciemny-motyw .dropbtn {
+    color: white;
+}
+/* Tryb Jasny - Jasne szkło z ciemnym tekstem */
+.dropdown-content {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9); /* Białe, przezroczyste tło */
+    backdrop-filter: blur(10px);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(108, 92, 231, 0.1);
+    z-index: 1000;
+    border-radius: 12px;
+    margin-top: 10px;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+    transition: all 0.3s ease;
+    transform: translateY(10px);
+}
+/*
+.dropdown-content a {
+    color: #2c3e50; /* Ciemny tekst dla czytelności */
+*/
+/* Tryb Ciemny - Powrót do głębokiego fioletu */
+body.ciemny-motyw .dropdown-content {
+    background: rgba(60, 9, 108, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- POPRAWKA DLA TRYBU CIEMNEGO --- */
+body.ciemny-motyw .dropdown-content {
+    /* Ciemne, półprzezroczyste tło */
+    background: rgba(60, 9, 108, 0.95) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Upewniamy się, że linki są białe */
+body.ciemny-motyw .dropdown-content a {
+    color: white !important;
+}
+
+/* Kolor po najechaniu w trybie ciemnym */
+body.ciemny-motyw .dropdown-content a:hover,
+body.ciemny-motyw .dropdown-content a.aktywny {
+    background: rgba(108, 92, 231, 0.3);
+    color: #c77dff !important; /* Jaśniejszy fiolet dla kontrastu */
+}
+
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Wypełnia lukę 10px marginesu + zapas */
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: transparent; /* Most jest niewidoczny */
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: #2c3e50;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background: rgba(108, 92, 231, 0.5); /* Jaśniejszy fiolet po najechaniu */
+}
+
+/* Pokaż menu po najechaniu myszką */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Styl dla aktywnego napisu Pasje */
+.dropbtn.aktywny {
+    color: #6c5ce7 !important; /* Twój fioletowy kolor */
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(108, 92, 231, 0.4); /* Subtelna fioletowa poświata */
 }

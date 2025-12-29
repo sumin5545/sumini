@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Corner - Sumin</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      
+        .grid-gier {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .karta-gry {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+        }
+        .karta-gry:hover {
+            transform: translateY(-10px);
+            background: rgba(108, 92, 231, 0.2);
+            border-color: #c77dff;
+        }
+        .okladka-gry {
+    width: 100%;          /* Obrazek zajmie całą szerokość karty */
+    height: 250px;        /* Ustalamy stałą wysokość, żeby było równo */
+    object-fit: cover;    /* To sprawia, że obrazek się ładnie przytnie, a nie spłaszczy */
+    border-radius: 12px;  /* Zaokrąglone rogi pasujące do kart */
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Dodajemy ładny cień pod okładką */
+    transition: transform 0.3s ease;
+}
+
+/* Dodatkowy efekt: lekkie powiększenie okładki po najechaniu na kartę */
+/* Dodatkowy efekt: powiększenie + NEONOWY BLASK! */
+.karta-gry:hover .okladka-gry {
+    transform: scale(1.03);
+    /* To tworzy podwójną, fioletową poświatę */
+    box-shadow: 0 0 20px rgba(199, 125, 255, 0.8), 
+                0 0 40px rgba(108, 92, 231, 0.6);
+}
+        body.ciemny-motyw .karta-gry {
+            background: rgba(60, 9, 108, 0.4);
+        }
+    </style>
+</head>
+<body>
+<div id="loader-wrapper">
+    <h1 style="color: white; font-size: 3em; margin: 0;">안녕하세요!<br><span style="font-size: 0.6em; opacity: 0.8;">Annyeong! 💜</span></h1>
+</div>
+    <nav>
+        <div class="logo">My favourtes</div>
+        <div class="menu-linki">
+            <a href="index.html">Start</a>
+<a href="omnie.html">O mnie</a>
+            <div class="dropdown">
+            <button class="dropbtn" >Pasje ▾</button>
+            <div class="dropdown-content">
+            <a href="gaming.html" class="aktywny">Gry 🎮</a>
+                <a href="korea.html">Korea 🇰🇷</a>
+                <a href="muzyka.html">Muzyka 🎵</a>
+            </div>
+        </div>
+<a href="galeria.html">Galeria</a>
+<a href="kontakt.html">Kontakt</a>
+            <button onclick="zmienMotyw()" style="margin-left: 20px; cursor: pointer; background: none; border: 1px solid #ccc; padding: 5px 10px; border-radius: 20px;">🌗 Tryb</button>
+        </div>
+    </nav>
+
+    <div class="kontener">
+        <div class="karta animacja-wejscia" style="max-width: 900px;">
+            <h1>My favourite games 🎮</h1>
+            <p>Gry to dla mnie nie tylko rozrywka, ale też niesamowite historie i soundtracki. Oto tytuły, które zajmują specjalne miejsce w moim sercu:</p>
+
+           <div class="grid-gier">
+    <div class="karta-gry">
+        <img src="img/lis2.jpg" alt="Okładka Life is Strange 2" class="okladka-gry">
+        <h3>Life is Strange 2</h3>
+        <p style="font-size: 0.9em; opacity: 0.8;">Historia braci Diaz, która porusza do głębi. Wybory, które naprawdę bolą. <br> Mimo tego, kocham. <br> Mój numer 1</p>
+    </div>
+
+    <div class="karta-gry">
+        <img src="img/cyberpunk.jpg" alt="Okładka Cyberpunk 2077" class="okladka-gry">
+        <h3>Cyberpunk 2077</h3>
+        <p style="font-size: 0.9em; opacity: 0.8;">Mój ukochany Night City. Neonowy fiolet, świetna muzyka i klimat przyszłości.</p>
+    </div>
+    <div class="karta-gry">
+        <img src="img/tarkov.jpg" alt="Okładka Escape from Tarkov" class="okladka-gry">
+        <h3>Escape from Tarkov</h3>
+        <p style="font-size: 0.9em; opacity: 0.8;">Hardcore i adrenalina. Nic nie równa się z tym napięciem podczas raidu.</p>
+    </div>
+</div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html" class="przycisk-pusty">← Wróć na start</a>
+            </div>
+        </div>
+    </div>
+
+<footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.9em; margin-top: auto;">
+        
+        <div style="margin-bottom: 20px;">
+            <a href="https://instagram.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">📸</a>
+            
+            <a href="https://tiktok.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">🎵</a>
+            
+            <a href="https://github.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">💻</a>
+        </div>
+
+        &copy; 2025 Park Sumin. Wszelkie prawa zastrzeżone.<br>
+        Stworzone z pasją 💜
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

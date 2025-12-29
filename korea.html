@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korea Bucket List - Sumin</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lista-marzen {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        .punkt-listy {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .punkt-listy:hover {
+            border-color: #6c5ce7;
+            transform: translateX(10px);
+        }
+        .checkbox-custom {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #6c5ce7;
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c5ce7;
+            font-weight: bold;
+        }
+        .zrealizowane .checkbox-custom {
+            background: #6c5ce7;
+            color: white;
+        }
+        .zrealizowane span {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader-wrapper">
+    <h1 style="color: white; font-size: 3em; margin: 0;">안녕하세요!<br><span style="font-size: 0.6em; opacity: 0.8;">Annyeong! 💜</span></h1>
+</div>
+    <nav>
+        <div class="logo">Sumin.</div>
+        <div class="menu-linki">
+            <a href="index.html">Start</a>
+<a href="omnie.html">O mnie</a>
+            <div class="dropdown">
+            <button class="dropbtn">Pasje ▾</button>
+            <div class="dropdown-content">
+            <a href="gaming.html">Gry 🎮</a>
+                <a href="korea.html" class="aktywny">Korea 🇰🇷</a>
+                <a href="muzyka.html">Muzyka 🎵</a>
+            </div>
+        </div>
+<a href="galeria.html">Galeria</a>
+<a href="kontakt.html">Kontakt</a>
+ <button onclick="zmienMotyw()" style="margin-left: 20px; cursor: pointer; background: none; border: 1px solid #ccc; padding: 5px 10px; border-radius: 20px;">🌗 Tryb</button>
+        </div>
+    </nav>
+
+    <div class="kontener">
+        <div class="karta animacja-wejscia">
+            <h1>Korea Bucket List 🇰🇷</h1>
+            <p>Uczę się języka już od <strong>198 dni</strong> i z każdym dniem marzę o tym coraz bardziej! Oto moja lista miejsc i rzeczy, które muszę zrobić w Korei:</p>
+
+            <ul class="lista-marzen">
+                <li class="punkt-listy">
+                    <div class="checkbox-custom"></div>
+                    <span>Wjechać na N Seoul Tower wieczorem</span>
+                </li>
+                <li class="punkt-listy">
+                    <div class="checkbox-custom"></div>
+                    <span>Zjeść tteokbokki na targu Gwangjang</span>
+                </li>
+                <li class="punkt-listy">
+                    <div class="checkbox-custom"></div>
+                    <span>Przejść się po Bukchon Hanok Village w tradycyjnym Hanboku</span>
+                </li>
+                <li class="punkt-listy">
+                    <div class="checkbox-custom"></div>
+                    <span>Zobaczyć koncert Stray Kids w Seulu 🎤</span>
+                </li>
+                <li class="punkt-listy">
+                    <div class="checkbox-custom"></div>
+                    <span>Odwiedzić kawiarnię tematyczną w dzielnicy Hongdae</span>
+                </li>
+                <li class="punkt-listy zrealizowane">
+                    <div class="checkbox-custom">✓</div>
+                    <span>Zacząć naukę języka koreańskiego (Hangeul)</span>
+                </li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html" class="przycisk-pusty">← Wróć na start</a>
+            </div>
+        </div>
+    </div>
+
+<footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.9em; margin-top: auto;">
+        
+        <div style="margin-bottom: 20px;">
+            <a href="https://instagram.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">📸</a>
+            
+            <a href="https://tiktok.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">🎵</a>
+            
+            <a href="https://github.com" target="_blank" style="text-decoration: none; margin: 0 10px; font-size: 24px;">💻</a>
+        </div>
+
+        &copy; 2025 Park Sumin. Wszelkie prawa zastrzeżone.<br>
+        Stworzone z pasją 💜
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
