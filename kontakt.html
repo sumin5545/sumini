@@ -42,19 +42,19 @@
                 <h1>Napisz do mnie</h1>
                 <p>Masz pytania? Chcesz nawiązać współpracę? Wypełnij formularz poniżej.</p>
 
-                <form onsubmit="wyslij(event)">
-                    
-                    <label for="imie">Twoje Imię</label>
-                    <input type="text" id="imie" placeholder="np. Jan Kowalski" required>
+                <form action="https://formspree.io/f/mjgvplvq" method="POST">
 
-                    <label for="email">Twój E-mail</label>
-                    <input type="email" id="email" placeholder="np. jan@domena.pl" required>
+            <label>Twoje imię:</label>
+            <input type="name" name="name" required>        
+  
+            <label>Twój e-mail:</label>
+            <input type="email" name="email" required>
+  
+             <label>Wiadomość:</label>
+            <textarea name="message" required></textarea>
 
-                    <label for="wiadomosc">Wiadomość</label>
-                    <textarea id="wiadomosc" placeholder="Tutaj wpisz treść..." required></textarea>
-
-                    <button type="submit" class="przycisk-glowny">Wyślij wiadomość</button>
-                </form>
+  <button type="submit" class="przycisk-glowny">Wyślij wiadomość</button>
+</form>
             </div>
 
             <div id="podziekowanie">
